@@ -1,2 +1,0 @@
-
-<h1> This is Ansible with jenkins integration using pipeline.</h1>
