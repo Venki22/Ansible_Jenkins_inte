@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install httpd server
+    yum:
+      name: httpd
+      state: present
+  - name: Copy index.html file in destination location
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+  - name: Start the httpd Service
+    service:
+      name: httpd
+      state: started
