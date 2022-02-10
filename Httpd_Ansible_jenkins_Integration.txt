@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage("scm checkout") {
+            steps {
+                git 'https://github.com/Venki22/Ansible_Jenkins_inte.git'
+            }
+        }
+        stage ("Execute ansible playbook"){
+            steps{
+                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'Ansible2', inventory: 'dev.inv', playbook: 'InstallHttpd.yml'
+            }
+        }
+    }
+}
